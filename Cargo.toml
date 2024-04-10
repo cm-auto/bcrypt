@@ -1,0 +1,22 @@
+[package]
+name = "bcrypt-cli"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+license-file = "LICENSE"
+default-run = "bcrypt"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bcrypt = "0.15.1"
+clap = { version = "4.5.4", features = ["derive"] }
+
+[[bin]]
+name = "bcrypt"
+path = "src/main.rs"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
